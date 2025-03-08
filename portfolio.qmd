@@ -9,13 +9,30 @@ format: html
 
 Este é um exemplo de como você pode estruturar um documento Markdown para ser visualizado no Visual Studio Code. Você pode incluir texto, títulos, listas, links, imagens e até código aqui.
 
-## Título 2: Exemplos de Código
+## Título 2: Consultando a API do Mercado Livre
 
-Aqui está um exemplo de código em **Python**, feito especialmente para você, Cleto:
+Aqui está um exemplo de código em **Python** para consultar a API do Mercado Livre e buscar o preço de um produto:
 
 ```python
-# Este é um exemplo simples em Python
-def saudacao(nome):
-    return f"Olá, {nome}!"
+import requests
 
-print(saudacao("Cleto"))
+def buscar_preco_produto(produto):
+    # Substitua 'produto' pelo nome do item que deseja pesquisar
+    url = f'https://api.mercadolibre.com/sites/MLB/search?q={produto}'
+    resposta = requests.get(url)
+
+    if resposta.status_code == 200:
+        dados = resposta.json()
+        # Extrai o primeiro valor do primeiro item na lista de resultados
+        if 'results' in dados and len(dados['results']) > 0:
+            preco = dados['results'][0]['price']
+            titulo = dados['results'][0]['title']
+            return f"O preço do produto '{titulo}' é R${preco}"
+        else:
+            return "Nenhum resultado encontrado."
+    else:
+        return "Erro ao acessar a API do Mercado Livre."
+
+# Teste da função
+produto = "notebook"  # Você pode modificar isso para o que quiser buscar
+print(buscar_preco_produto(produto))
