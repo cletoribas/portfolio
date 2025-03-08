@@ -1,5 +1,21 @@
 ---
-title: "Untitled"
+title: "Projeto de Exemplificação"
+author: "Cleto"
+date: "2025-03-07"
 format: html
 ---
 
+# Introdução
+
+Este é um exemplo de como você pode estruturar um documento Markdown para ser visualizado no Visual Studio Code. Você pode incluir texto, títulos, listas, links, imagens e até código aqui.
+
+## Título 2: Exemplos de Código
+
+Aqui está um exemplo de código em **Python**, feito especialmente para você, Cleto:
+
+```python
+# Este é um exemplo simples em Python
+def saudacao(nome):
+    return f"Olá, {nome}!"
+
+print(saudacao("Cleto"))
