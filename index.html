@@ -9,7 +9,7 @@
 <meta name="author" content="Cleto">
 <meta name="dcterms.date" content="2025-03-07">
 
-<title>Projeto de Exemplificação</title>
+<title>Animação de Cubo</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -25,16 +25,16 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="portfolio_files/libs/clipboard/clipboard.min.js"></script>
-<script src="portfolio_files/libs/quarto-html/quarto.js"></script>
-<script src="portfolio_files/libs/quarto-html/popper.min.js"></script>
-<script src="portfolio_files/libs/quarto-html/tippy.umd.min.js"></script>
-<script src="portfolio_files/libs/quarto-html/anchor.min.js"></script>
-<link href="portfolio_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="portfolio_files/libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="portfolio_files/libs/bootstrap/bootstrap.min.js"></script>
-<link href="portfolio_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="portfolio_files/libs/bootstrap/bootstrap-1bc8a17f135ab3d594c857e9f48e611b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="index_files/libs/clipboard/clipboard.min.js"></script>
+<script src="index_files/libs/quarto-html/quarto.js"></script>
+<script src="index_files/libs/quarto-html/popper.min.js"></script>
+<script src="index_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="index_files/libs/quarto-html/anchor.min.js"></script>
+<link href="index_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="index_files/libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="index_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="index_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="index_files/libs/bootstrap/bootstrap-1bc8a17f135ab3d594c857e9f48e611b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 
 
 </head>
@@ -47,7 +47,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Projeto de Exemplificação</h1>
+<h1 class="title">Animação de Cubo</h1>
 </div>
 
 
@@ -76,30 +76,49 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="introdução" class="level1">
-<h1>Introdução</h1>
-<p>Este é um exemplo de como você pode estruturar um documento Markdown para ser visualizado no Visual Studio Code. Você pode incluir texto, títulos, listas, links, imagens e até código aqui.</p>
-<section id="título-2-consultando-a-api-do-mercado-livre" class="level2">
-<h2 class="anchored" data-anchor-id="título-2-consultando-a-api-do-mercado-livre">Título 2: Consultando a API do Mercado Livre</h2>
-<p>Aqui está um exemplo de código em <strong>Python</strong> para consultar a API do Mercado Livre e buscar o preço de um produto:</p>
-<p>```python import requests</p>
-<p>def buscar_preco_produto(produto): # Substitua ‘produto’ pelo nome do item que deseja pesquisar url = f’https://api.mercadolibre.com/sites/MLB/search?q={produto}’ resposta = requests.get(url)</p>
-<pre><code>if resposta.status_code == 200:
-    dados = resposta.json()
-    # Extrai o primeiro valor do primeiro item na lista de resultados
-    if 'results' in dados and len(dados['results']) &gt; 0:
-        preco = dados['results'][0]['price']
-        titulo = dados['results'][0]['title']
-        return f"O preço do produto '{titulo}' é R${preco}"
-    else:
-        return "Nenhum resultado encontrado."
-else:
-    return "Erro ao acessar a API do Mercado Livre."</code></pre>
-</section>
-</section>
-<section id="teste-da-função" class="level1">
-<h1>Teste da função</h1>
-<p>produto = “notebook” # Você pode modificar isso para o que quiser buscar print(buscar_preco_produto(produto))</p>
+<section id="animação-de-um-cubo-em-movimento" class="level1">
+<h1>Animação de um Cubo em Movimento</h1>
+<p>Aqui está um cubo animado usando <strong>Three.js</strong>. Ele será renderizado diretamente na página do repositório.</p>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const container = document.createElement("div");
+    container.style.width = "100vw";
+    container.style.height = "100vh";
+    document.body.appendChild(container);
+    
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    container.appendChild(renderer.domElement);
+
+    // Criação do cubo
+    const geometry = new THREE.BoxGeometry();
+    const material = new THREE.MeshBasicMaterial({ color: 0x00ff00, wireframe: true });
+    const cube = new THREE.Mesh(geometry, material);
+    scene.add(cube);
+
+    camera.position.z = 2;
+
+    // Função de animação
+    function animate() {
+        requestAnimationFrame(animate);
+        cube.rotation.x += 0.06;
+        cube.rotation.y += 0.001;
+        renderer.render(scene, camera);
+    }
+    
+    animate();
+
+    // Responsividade
+    window.addEventListener('resize', () => {
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+    });
+});
+</script>
 </section>
 
 </main>

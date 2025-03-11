@@ -3,20 +3,27 @@ title: "Animação de Cubo"
 author: "Cleto"
 date: "2025-03-07"
 format: html
+engine: knitr
 ---
 
 # Animação de um Cubo em Movimento
 
-Aqui está um exemplo de um cubo animado usando **Three.js**.
+Aqui está um cubo animado usando **Three.js**. Ele será renderizado diretamente na página do repositório.
 
-```{js}
-// Importa Three.js
+```{=html}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
 document.addEventListener("DOMContentLoaded", function () {
+    const container = document.createElement("div");
+    container.style.width = "100vw";
+    container.style.height = "100vh";
+    document.body.appendChild(container);
+    
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
     const renderer = new THREE.WebGLRenderer();
     renderer.setSize(window.innerWidth, window.innerHeight);
-    document.body.appendChild(renderer.domElement);
+    container.appendChild(renderer.domElement);
 
     // Criação do cubo
     const geometry = new THREE.BoxGeometry();
@@ -24,13 +31,13 @@ document.addEventListener("DOMContentLoaded", function () {
     const cube = new THREE.Mesh(geometry, material);
     scene.add(cube);
 
-    camera.position.z = 3;
+    camera.position.z = 2;
 
     // Função de animação
     function animate() {
         requestAnimationFrame(animate);
-        cube.rotation.x += 0.01;
-        cube.rotation.y += 0.01;
+        cube.rotation.x += 0.06;
+        cube.rotation.y += 0.001;
         renderer.render(scene, camera);
     }
     
@@ -43,6 +50,5 @@ document.addEventListener("DOMContentLoaded", function () {
         camera.updateProjectionMatrix();
     });
 });
+</script>
 ```
-
-Para visualizar a animação, abra este arquivo HTML em um navegador moderno com suporte a WebGL.
