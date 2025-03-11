@@ -6,11 +6,9 @@ format: html
 engine: knitr
 ---
 
-# Animação de um Cubo em Movimento
+# Animação de Cubo
 
-**Varie o volume da música para manipular a velocidade do Cubo** 
-
-Biblioteca utilizada na animação:**Three.js**
+Biblioteca utilizada na renderização do cubo: **Three.js**
 
 ```{=html}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
@@ -27,17 +25,16 @@ document.addEventListener("DOMContentLoaded", function () {
     renderer.setSize(window.innerWidth, window.innerHeight);
     container.appendChild(renderer.domElement);
 
-    // Criação do cubo
-    const geometry = new THREE.BoxGeometry();
+    let cubeSize = 1;
+    let geometry = new THREE.BoxGeometry(cubeSize, cubeSize, cubeSize);
     const material = new THREE.MeshBasicMaterial({ color: 0x00ff00, wireframe: true });
-    const cube = new THREE.Mesh(geometry, material);
+    let cube = new THREE.Mesh(geometry, material);
     scene.add(cube);
 
     camera.position.z = 3;
 
     let rotationSpeed = 0.01;
 
-    // Função de animação
     function animate() {
         requestAnimationFrame(animate);
         cube.rotation.x += rotationSpeed;
@@ -47,28 +44,62 @@ document.addEventListener("DOMContentLoaded", function () {
     
     animate();
 
-    // Responsividade
     window.addEventListener('resize', () => {
         renderer.setSize(window.innerWidth, window.innerHeight);
         camera.aspect = window.innerWidth / window.innerHeight;
         camera.updateProjectionMatrix();
     });
 
+    // Criar container de controles logo abaixo do texto
+    const controlsContainer = document.createElement("div");
+    controlsContainer.style.margin = "20px 0";
+    controlsContainer.style.padding = "10px";
+    controlsContainer.style.background = "rgba(255, 255, 255, 0.8)";
+    controlsContainer.style.borderRadius = "5px";
+    document.body.insertBefore(controlsContainer, container);
+
     // Criar player de áudio
-    const audioContainer = document.createElement("div");
-    audioContainer.style.position = "absolute";
-    audioContainer.style.top = "10px";
-    audioContainer.style.left = "10px";
-    document.body.appendChild(audioContainer);
-
     const audio = document.createElement("audio");
-    audio.src = "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"; // Substitua pela URL da música desejada
+    audio.src = "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3";
     audio.controls = true;
-    audioContainer.appendChild(audio);
+    controlsContainer.appendChild(audio);
+    
+    // Controle de velocidade
+    const speedLabel = document.createElement("label");
+    speedLabel.innerText = "  Velocidade ";
+    controlsContainer.appendChild(speedLabel);
 
-    // Atualizar a velocidade do cubo com base no volume do áudio
-    audio.addEventListener("volumechange", function () {
-        rotationSpeed = 0.01 + (audio.volume * 0.09); // Ajusta a velocidade proporcionalmente ao volume
+    const speedSlider = document.createElement("input");
+    speedSlider.type = "range";
+    speedSlider.min = "0.01";
+    speedSlider.max = "0.05";
+    speedSlider.step = "0.005";
+    speedSlider.value = "0.01";
+    controlsContainer.appendChild(speedSlider);
+
+    // Controle de tamanho
+    const sizeLabel = document.createElement("label");
+    sizeLabel.innerText = "  Tamanho ";
+    controlsContainer.appendChild(sizeLabel);
+
+    const sizeSlider = document.createElement("input");
+    sizeSlider.type = "range";
+    sizeSlider.min = "0.5";
+    sizeSlider.max = "5";
+    sizeSlider.step = "0.1";
+    sizeSlider.value = "1";
+    controlsContainer.appendChild(sizeSlider);
+
+    speedSlider.addEventListener("input", function () {
+        rotationSpeed = parseFloat(speedSlider.value);
+    });
+
+    sizeSlider.addEventListener("input", function () {
+        let newSize = parseFloat(sizeSlider.value);
+        scene.remove(cube);
+        geometry = new THREE.BoxGeometry(newSize, newSize, newSize);
+        cube = new THREE.Mesh(geometry, material);
+        scene.add(cube);
     });
 });
 </script>
