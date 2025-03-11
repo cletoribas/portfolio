@@ -1,38 +1,48 @@
 ---
-title: "Projeto de Exemplificação"
+title: "Animação de Cubo"
 author: "Cleto"
 date: "2025-03-07"
 format: html
 ---
 
-# Introdução
+# Animação de um Cubo em Movimento
 
-Este é um exemplo de como você pode estruturar um documento Markdown para ser visualizado no Visual Studio Code. Você pode incluir texto, títulos, listas, links, imagens e até código aqui.
+Aqui está um exemplo de um cubo animado usando **Three.js**.
 
-## Título 2: Consultando a API do Mercado Livre
+```{js}
+// Importa Three.js
+document.addEventListener("DOMContentLoaded", function () {
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    document.body.appendChild(renderer.domElement);
 
-Aqui está um exemplo de código em **Python** para consultar a API do Mercado Livre e buscar o preço de um produto:
+    // Criação do cubo
+    const geometry = new THREE.BoxGeometry();
+    const material = new THREE.MeshBasicMaterial({ color: 0x00ff00, wireframe: true });
+    const cube = new THREE.Mesh(geometry, material);
+    scene.add(cube);
 
-```python
-import requests
+    camera.position.z = 3;
 
-def buscar_preco_produto(produto):
-    # Substitua 'produto' pelo nome do item que deseja pesquisar
-    url = f'https://api.mercadolibre.com/sites/MLB/search?q={produto}'
-    resposta = requests.get(url)
+    // Função de animação
+    function animate() {
+        requestAnimationFrame(animate);
+        cube.rotation.x += 0.01;
+        cube.rotation.y += 0.01;
+        renderer.render(scene, camera);
+    }
+    
+    animate();
 
-    if resposta.status_code == 200:
-        dados = resposta.json()
-        # Extrai o primeiro valor do primeiro item na lista de resultados
-        if 'results' in dados and len(dados['results']) > 0:
-            preco = dados['results'][0]['price']
-            titulo = dados['results'][0]['title']
-            return f"O preço do produto '{titulo}' é R${preco}"
-        else:
-            return "Nenhum resultado encontrado."
-    else:
-        return "Erro ao acessar a API do Mercado Livre."
+    // Responsividade
+    window.addEventListener('resize', () => {
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+    });
+});
+```
 
-# Teste da função
-produto = "notebook"  # Você pode modificar isso para o que quiser buscar
-print(buscar_preco_produto(produto))
+Para visualizar a animação, abra este arquivo HTML em um navegador moderno com suporte a WebGL.
