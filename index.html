@@ -9,7 +9,7 @@
 <meta name="author" content="Cleto">
 <meta name="dcterms.date" content="2025-03-07">
 
-<title>Animação de Cubo</title>
+<title>Cube?</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -47,7 +47,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Animação de Cubo</h1>
+<h1 class="title">Cube?</h1>
 </div>
 
 
@@ -78,7 +78,8 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="animação-de-um-cubo-em-movimento" class="level1">
 <h1>Animação de um Cubo em Movimento</h1>
-<p>Aqui está um cubo animado usando <strong>Three.js</strong>. Ele será renderizado diretamente na página do repositório.</p>
+<p><strong>Varie o volume da música para manipular a velocidade do Cubo</strong></p>
+<p>Biblioteca utilizada na animação:<strong>Three.js</strong></p>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script>
 document.addEventListener("DOMContentLoaded", function () {
@@ -99,13 +100,15 @@ document.addEventListener("DOMContentLoaded", function () {
     const cube = new THREE.Mesh(geometry, material);
     scene.add(cube);
 
-    camera.position.z = 2;
+    camera.position.z = 3;
+
+    let rotationSpeed = 0.01;
 
     // Função de animação
     function animate() {
         requestAnimationFrame(animate);
-        cube.rotation.x += 0.06;
-        cube.rotation.y += 0.001;
+        cube.rotation.x += rotationSpeed;
+        cube.rotation.y += rotationSpeed;
         renderer.render(scene, camera);
     }
     
@@ -116,6 +119,23 @@ document.addEventListener("DOMContentLoaded", function () {
         renderer.setSize(window.innerWidth, window.innerHeight);
         camera.aspect = window.innerWidth / window.innerHeight;
         camera.updateProjectionMatrix();
+    });
+
+    // Criar player de áudio
+    const audioContainer = document.createElement("div");
+    audioContainer.style.position = "absolute";
+    audioContainer.style.top = "10px";
+    audioContainer.style.left = "10px";
+    document.body.appendChild(audioContainer);
+
+    const audio = document.createElement("audio");
+    audio.src = "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"; // Substitua pela URL da música desejada
+    audio.controls = true;
+    audioContainer.appendChild(audio);
+
+    // Atualizar a velocidade do cubo com base no volume do áudio
+    audio.addEventListener("volumechange", function () {
+        rotationSpeed = 0.01 + (audio.volume * 0.09); // Ajusta a velocidade proporcionalmente ao volume
     });
 });
 </script>
