@@ -5,14 +5,17 @@ date: "2025-03-28"
 format: html
 engine: knitr
 ---
-# Cleto Ribas  
-**Marketplace Manager**  
-Curitiba, Paraná, Brazil  
-Email: cleto.diogo1@gmail.com  
-Phone: +55 41 99601-4088
 
-## Foto
-![Cleto Ribas](./ProfilePic.jpeg)  <!-- Substitua pelo caminho correto da imagem -->
+<div style="display: flex; align-items: center;">
+  <img src="./ProfilePic.jpeg" width="100" height="100" style="margin-right: 20px;" />
+  <div>
+    Cleto Ribas
+    Marketplace Manager
+    Curitiba, Paraná, Brazil
+    Email: cleto.diogo1@gmail.com
+    Phone: +55 41 99601-4088
+  </div>
+</div>
 
 ## Resumo Profissional
 Marketplace Manager com vasta experiência em desenvolvimento de projetos de web scraping, crawlers, soluções baseadas em APIs, análise de dados, geração de leads e gerenciamento de bancos de dados em nuvem. Habilidades em Python, SQL, Power BI e ferramentas de IA para otimizar processos e impulsionar o crescimento empresarial.
@@ -30,25 +33,25 @@ Marketplace Manager com vasta experiência em desenvolvimento de projetos de web
 ### Tudo para Moto
 **Marketplace Manager**  
 *Julho 2024 - Presente (8 meses) | Paraná, Brasil*  
-- Desenvolvimento e otimização de crawlers, scripts de web scraping e integrações de APIs para coleta de dados.
+- Desenvolvimento e otimização de crawlers, scripts de web scraping e integrações de APIs para coleta de dados.  
 - Análise de dados e desenvolvimento de KPIs para impulsionar o crescimento e tomar decisões estratégicas.
 
 ### Olist
 **Commercial Intelligence Analyst**  
 *Janeiro 2024 - Julho 2024 (7 meses) | Curitiba, Paraná, Brasil*  
-- Análise de dados e geração de soluções de inteligência comercial para a melhoria da performance de vendas.
+- Análise de dados e geração de soluções de inteligência comercial para a melhoria da performance de vendas.  
 - Otimização de processos de geração de leads e qualidade do funil de vendas.
 
 ### Geo Biogas & Tech
 **Data Analytics Intern**  
 *Outubro 2022 - Janeiro 2024 (1 ano e 4 meses) | Curitiba, Paraná, Brasil*  
-- Análise de grandes volumes de dados para gerar insights para otimização de negócios e processos internos.
+- Análise de grandes volumes de dados para gerar insights para otimização de negócios e processos internos.  
 - Contribuição no design de soluções baseadas em IA para análise e tomada de decisões.
 
 ### Fibracem Teleinformática
 **Materials Planning and Control Intern**  
 *Novembro 2021 - Outubro 2022 (1 ano) | Pinhais, Paraná, Brasil*  
-- Suporte no controle de estoque e negociação com fornecedores para compras e prazos de entrega.
+- Suporte no controle de estoque e negociação com fornecedores para compras e prazos de entrega.  
 - Acompanhamento das operações fiscais ligadas ao processo de vendas.
 
 ## Formação Acadêmica
