@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Cleto">
-<meta name="dcterms.date" content="2025-03-07">
 
-<title>Cube?</title>
+<title>Currículo - Cleto Ribas</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -47,26 +45,14 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Cube?</h1>
+<h1 class="title">Currículo - Cleto Ribas</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Cleto </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">March 7, 2025</p>
-    </div>
-  </div>
   
     
   </div>
@@ -76,101 +62,76 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="animação-de-cubo" class="level1">
-<h1>Animação de Cubo</h1>
-<p>Biblioteca utilizada na renderização do cubo: <strong>Three.js</strong></p>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-    const container = document.createElement("div");
-    container.style.width = "100vw";
-    container.style.height = "100vh";
-    document.body.appendChild(container);
-    
-    const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-    const renderer = new THREE.WebGLRenderer();
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    container.appendChild(renderer.domElement);
-
-    let cubeSize = 1;
-    let geometry = new THREE.BoxGeometry(cubeSize, cubeSize, cubeSize);
-    const material = new THREE.MeshBasicMaterial({ color: 0x00ff00, wireframe: true });
-    let cube = new THREE.Mesh(geometry, material);
-    scene.add(cube);
-
-    camera.position.z = 3;
-
-    let rotationSpeed = 0.01;
-
-    function animate() {
-        requestAnimationFrame(animate);
-        cube.rotation.x += rotationSpeed;
-        cube.rotation.y += rotationSpeed;
-        renderer.render(scene, camera);
-    }
-    
-    animate();
-
-    window.addEventListener('resize', () => {
-        renderer.setSize(window.innerWidth, window.innerHeight);
-        camera.aspect = window.innerWidth / window.innerHeight;
-        camera.updateProjectionMatrix();
-    });
-
-    // Criar container de controles logo abaixo do texto
-    const controlsContainer = document.createElement("div");
-    controlsContainer.style.margin = "20px 0";
-    controlsContainer.style.padding = "10px";
-    controlsContainer.style.background = "rgba(255, 255, 255, 0.8)";
-    controlsContainer.style.borderRadius = "5px";
-    document.body.insertBefore(controlsContainer, container);
-
-    // Criar player de áudio
-    const audio = document.createElement("audio");
-    audio.src = "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3";
-    audio.controls = true;
-    controlsContainer.appendChild(audio);
-    
-    // Controle de velocidade
-    const speedLabel = document.createElement("label");
-    speedLabel.innerText = "  Velocidade ";
-    controlsContainer.appendChild(speedLabel);
-
-    const speedSlider = document.createElement("input");
-    speedSlider.type = "range";
-    speedSlider.min = "0.01";
-    speedSlider.max = "0.05";
-    speedSlider.step = "0.005";
-    speedSlider.value = "0.01";
-    controlsContainer.appendChild(speedSlider);
-
-    // Controle de tamanho
-    const sizeLabel = document.createElement("label");
-    sizeLabel.innerText = "  Tamanho ";
-    controlsContainer.appendChild(sizeLabel);
-
-    const sizeSlider = document.createElement("input");
-    sizeSlider.type = "range";
-    sizeSlider.min = "0.5";
-    sizeSlider.max = "5";
-    sizeSlider.step = "0.1";
-    sizeSlider.value = "1";
-    controlsContainer.appendChild(sizeSlider);
-
-    speedSlider.addEventListener("input", function () {
-        rotationSpeed = parseFloat(speedSlider.value);
-    });
-
-    sizeSlider.addEventListener("input", function () {
-        let newSize = parseFloat(sizeSlider.value);
-        scene.remove(cube);
-        geometry = new THREE.BoxGeometry(newSize, newSize, newSize);
-        cube = new THREE.Mesh(geometry, material);
-        scene.add(cube);
-    });
-});
-</script>
+<section id="cleto-ribas" class="level1">
+<h1>Cleto Ribas</h1>
+<p><strong>Marketplace Manager</strong><br>
+Curitiba, Paraná, Brazil<br>
+Email: cleto.diogo1@gmail.com<br>
+Phone: +55 41 99601-4088</p>
+<section id="resumo-profissional" class="level2">
+<h2 class="anchored" data-anchor-id="resumo-profissional">Resumo Profissional</h2>
+<p>Marketplace Manager com vasta experiência em desenvolvimento de projetos de web scraping, crawlers, soluções baseadas em APIs, análise de dados, geração de leads e gerenciamento de bancos de dados em nuvem. Habilidades em Python, SQL, Power BI e ferramentas de IA para otimizar processos e impulsionar o crescimento empresarial.</p>
+</section>
+<section id="competências-principais" class="level2">
+<h2 class="anchored" data-anchor-id="competências-principais">Competências Principais</h2>
+<ul>
+<li><strong>Programação</strong>: Python, APIs</li>
+<li><strong>Análise de Dados &amp; Visualização</strong>: SQL, Power BI</li>
+<li><strong>Geração de Leads &amp; Otimização do Funil de Vendas</strong>: Ferramentas de IA</li>
+<li><strong>Gestão de Bancos de Dados na Nuvem</strong>: AWS Athena</li>
+<li><strong>Inteligência de Negócios &amp; Relatórios</strong>: KPIs, insights acionáveis</li>
+<li><strong>Gestão de Suprimentos &amp; Inventário</strong>: Negociação com fornecedores, controle de estoque</li>
+</ul>
+</section>
+<section id="experiência-profissional" class="level2">
+<h2 class="anchored" data-anchor-id="experiência-profissional">Experiência Profissional</h2>
+<section id="tudo-para-moto" class="level3">
+<h3 class="anchored" data-anchor-id="tudo-para-moto">Tudo para Moto</h3>
+<p><strong>Marketplace Manager</strong><br>
+<em>Julho 2024 - Presente (8 meses) | Paraná, Brasil</em><br>
+- Desenvolvimento e otimização de crawlers, scripts de web scraping e integrações de APIs para coleta de dados. - Análise de dados e desenvolvimento de KPIs para impulsionar o crescimento e tomar decisões estratégicas.</p>
+</section>
+<section id="olist" class="level3">
+<h3 class="anchored" data-anchor-id="olist">Olist</h3>
+<p><strong>Commercial Intelligence Analyst</strong><br>
+<em>Janeiro 2024 - Julho 2024 (7 meses) | Curitiba, Paraná, Brasil</em><br>
+- Análise de dados e geração de soluções de inteligência comercial para a melhoria da performance de vendas. - Otimização de processos de geração de leads e qualidade do funil de vendas.</p>
+</section>
+<section id="geo-biogas-tech" class="level3">
+<h3 class="anchored" data-anchor-id="geo-biogas-tech">Geo Biogas &amp; Tech</h3>
+<p><strong>Data Analytics Intern</strong><br>
+<em>Outubro 2022 - Janeiro 2024 (1 ano e 4 meses) | Curitiba, Paraná, Brasil</em><br>
+- Análise de grandes volumes de dados para gerar insights para otimização de negócios e processos internos. - Contribuição no design de soluções baseadas em IA para análise e tomada de decisões.</p>
+</section>
+<section id="fibracem-teleinformática" class="level3">
+<h3 class="anchored" data-anchor-id="fibracem-teleinformática">Fibracem Teleinformática</h3>
+<p><strong>Materials Planning and Control Intern</strong><br>
+<em>Novembro 2021 - Outubro 2022 (1 ano) | Pinhais, Paraná, Brasil</em><br>
+- Suporte no controle de estoque e negociação com fornecedores para compras e prazos de entrega. - Acompanhamento das operações fiscais ligadas ao processo de vendas.</p>
+</section>
+</section>
+<section id="formação-acadêmica" class="level2">
+<h2 class="anchored" data-anchor-id="formação-acadêmica">Formação Acadêmica</h2>
+<p><strong>FAE Centro Universitário</strong><br>
+<em>Bacharelado em Data Science for Business</em><br>
+<em>Janeiro 2024 - Dezembro 2027</em></p>
+<p><strong>Universidade Tecnológica Federal do Paraná</strong><br>
+<em>Bacharelado em Engenharia Mecatrônica, Robótica e Automação</em><br>
+<em>2016 - 2023</em></p>
+</section>
+<section id="idiomas" class="level2">
+<h2 class="anchored" data-anchor-id="idiomas">Idiomas</h2>
+<ul>
+<li><strong>Inglês</strong>: Avançado</li>
+</ul>
+</section>
+<section id="contato" class="level2">
+<h2 class="anchored" data-anchor-id="contato">Contato</h2>
+<ul>
+<li>Email: <a href="mailto:cleto.diogo1@gmail.com">cleto.diogo1@gmail.com</a></li>
+<li>Phone: +55 41 99601-4088</li>
+</ul>
+</section>
 </section>
 
 </main>

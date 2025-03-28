@@ -1,106 +1,65 @@
 ---
-title: "Cube?"
-author: "Cleto"
-date: "2025-03-07"
+title: "Currículo - Cleto Ribas"
 format: html
 engine: knitr
 ---
+  
+# Cleto Ribas  
+**Marketplace Manager**  
+Curitiba, Paraná, Brazil  
+Email: cleto.diogo1@gmail.com  
+Phone: +55 41 99601-4088
 
-# Animação de Cubo
+## Resumo Profissional
+Marketplace Manager com vasta experiência em desenvolvimento de projetos de web scraping, crawlers, soluções baseadas em APIs, análise de dados, geração de leads e gerenciamento de bancos de dados em nuvem. Habilidades em Python, SQL, Power BI e ferramentas de IA para otimizar processos e impulsionar o crescimento empresarial.
 
-Biblioteca utilizada na renderização do cubo: **Three.js**
+## Competências Principais
+- **Programação**: Python, APIs
+- **Análise de Dados & Visualização**: SQL, Power BI
+- **Geração de Leads & Otimização do Funil de Vendas**: Ferramentas de IA
+- **Gestão de Bancos de Dados na Nuvem**: AWS Athena
+- **Inteligência de Negócios & Relatórios**: KPIs, insights acionáveis
+- **Gestão de Suprimentos & Inventário**: Negociação com fornecedores, controle de estoque
 
-```{=html}
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-    const container = document.createElement("div");
-    container.style.width = "100vw";
-    container.style.height = "100vh";
-    document.body.appendChild(container);
-    
-    const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-    const renderer = new THREE.WebGLRenderer();
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    container.appendChild(renderer.domElement);
+## Experiência Profissional
 
-    let cubeSize = 1;
-    let geometry = new THREE.BoxGeometry(cubeSize, cubeSize, cubeSize);
-    const material = new THREE.MeshBasicMaterial({ color: 0x00ff00, wireframe: true });
-    let cube = new THREE.Mesh(geometry, material);
-    scene.add(cube);
+### Tudo para Moto
+**Marketplace Manager**  
+*Julho 2024 - Presente (8 meses) | Paraná, Brasil*  
+- Desenvolvimento e otimização de crawlers, scripts de web scraping e integrações de APIs para coleta de dados.
+- Análise de dados e desenvolvimento de KPIs para impulsionar o crescimento e tomar decisões estratégicas.
 
-    camera.position.z = 3;
+### Olist
+**Commercial Intelligence Analyst**  
+*Janeiro 2024 - Julho 2024 (7 meses) | Curitiba, Paraná, Brasil*  
+- Análise de dados e geração de soluções de inteligência comercial para a melhoria da performance de vendas.
+- Otimização de processos de geração de leads e qualidade do funil de vendas.
 
-    let rotationSpeed = 0.01;
+### Geo Biogas & Tech
+**Data Analytics Intern**  
+*Outubro 2022 - Janeiro 2024 (1 ano e 4 meses) | Curitiba, Paraná, Brasil*  
+- Análise de grandes volumes de dados para gerar insights para otimização de negócios e processos internos.
+- Contribuição no design de soluções baseadas em IA para análise e tomada de decisões.
 
-    function animate() {
-        requestAnimationFrame(animate);
-        cube.rotation.x += rotationSpeed;
-        cube.rotation.y += rotationSpeed;
-        renderer.render(scene, camera);
-    }
-    
-    animate();
+### Fibracem Teleinformática
+**Materials Planning and Control Intern**  
+*Novembro 2021 - Outubro 2022 (1 ano) | Pinhais, Paraná, Brasil*  
+- Suporte no controle de estoque e negociação com fornecedores para compras e prazos de entrega.
+- Acompanhamento das operações fiscais ligadas ao processo de vendas.
 
-    window.addEventListener('resize', () => {
-        renderer.setSize(window.innerWidth, window.innerHeight);
-        camera.aspect = window.innerWidth / window.innerHeight;
-        camera.updateProjectionMatrix();
-    });
+## Formação Acadêmica
 
-    // Criar container de controles logo abaixo do texto
-    const controlsContainer = document.createElement("div");
-    controlsContainer.style.margin = "20px 0";
-    controlsContainer.style.padding = "10px";
-    controlsContainer.style.background = "rgba(255, 255, 255, 0.8)";
-    controlsContainer.style.borderRadius = "5px";
-    document.body.insertBefore(controlsContainer, container);
+**FAE Centro Universitário**  
+*Bacharelado em Data Science for Business*  
+*Janeiro 2024 - Dezembro 2027*  
 
-    // Criar player de áudio
-    const audio = document.createElement("audio");
-    audio.src = "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3";
-    audio.controls = true;
-    controlsContainer.appendChild(audio);
-    
-    // Controle de velocidade
-    const speedLabel = document.createElement("label");
-    speedLabel.innerText = "  Velocidade ";
-    controlsContainer.appendChild(speedLabel);
+**Universidade Tecnológica Federal do Paraná**  
+*Bacharelado em Engenharia Mecatrônica, Robótica e Automação*  
+*2016 - 2023*
 
-    const speedSlider = document.createElement("input");
-    speedSlider.type = "range";
-    speedSlider.min = "0.01";
-    speedSlider.max = "0.05";
-    speedSlider.step = "0.005";
-    speedSlider.value = "0.01";
-    controlsContainer.appendChild(speedSlider);
+## Idiomas
+- **Inglês**: Avançado
 
-    // Controle de tamanho
-    const sizeLabel = document.createElement("label");
-    sizeLabel.innerText = "  Tamanho ";
-    controlsContainer.appendChild(sizeLabel);
-
-    const sizeSlider = document.createElement("input");
-    sizeSlider.type = "range";
-    sizeSlider.min = "0.5";
-    sizeSlider.max = "5";
-    sizeSlider.step = "0.1";
-    sizeSlider.value = "1";
-    controlsContainer.appendChild(sizeSlider);
-
-    speedSlider.addEventListener("input", function () {
-        rotationSpeed = parseFloat(speedSlider.value);
-    });
-
-    sizeSlider.addEventListener("input", function () {
-        let newSize = parseFloat(sizeSlider.value);
-        scene.remove(cube);
-        geometry = new THREE.BoxGeometry(newSize, newSize, newSize);
-        cube = new THREE.Mesh(geometry, material);
-        scene.add(cube);
-    });
-});
-</script>
-```
+## Contato
+- Email: [cleto.diogo1@gmail.com](mailto:cleto.diogo1@gmail.com)
+- Phone: +55 41 99601-4088
