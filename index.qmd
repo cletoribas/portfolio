@@ -1,14 +1,18 @@
 ---
 title: "Currículo - Cleto Ribas"
+author: "Cleto Ribas"
+date: "2025-03-28"
 format: html
 engine: knitr
 ---
-  
 # Cleto Ribas  
 **Marketplace Manager**  
 Curitiba, Paraná, Brazil  
 Email: cleto.diogo1@gmail.com  
 Phone: +55 41 99601-4088
+
+## Foto
+![Cleto Ribas](./ProfilePic.jpeg)  <!-- Substitua pelo caminho correto da imagem -->
 
 ## Resumo Profissional
 Marketplace Manager com vasta experiência em desenvolvimento de projetos de web scraping, crawlers, soluções baseadas em APIs, análise de dados, geração de leads e gerenciamento de bancos de dados em nuvem. Habilidades em Python, SQL, Power BI e ferramentas de IA para otimizar processos e impulsionar o crescimento empresarial.
